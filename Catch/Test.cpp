@@ -23,7 +23,12 @@ TEST_CASE("Read distances.txt") {
 }
 
 TEST_CASE("Accept user input - getInput()") {
-
+    tsp tsp;
+    REQUIRE(tsp.acceptInput() == true);
+    REQUIRE(tsp.cities == 5);
+    REQUIRE(tsp.tours == 5);
+    REQUIRE(tsp.generations == 5);
+    REQUIRE(tsp.percentMutated == 5);
 }
 
 TEST_CASE("Print s array - printS()") {
