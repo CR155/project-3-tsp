@@ -18,7 +18,7 @@ void readDistances(vector<double> &tempWeightedEdges) {
 void createAdjacencyMatrix(int &z, vector<double> &tempWeightedEdges, double weightedEdges[][20], int &cities) {
     for (int i = 0; i < cities; i++) {
         for (int j = 0; j < cities; j++) {
-            if(i == j) {
+            if (i == j) {
                 weightedEdges[i][j] = 0;
             } else {
                 weightedEdges[i][j] = tempWeightedEdges.at(z - 1);
@@ -42,7 +42,7 @@ int random(int min, int max) {
     std::cout << distr(gen) << ' ';
     return distr(gen);
 }
-double getMinPath(int &s, int &cities, double min_path, vector<int> &numbers, double weightedEdges[][20]) {
+double getMinPath(int &s, double min_path, vector<int> &numbers, double weightedEdges[][20]) {
     std::chrono::time_point<std::chrono::system_clock> end;
     end = std::chrono::system_clock::now() + 300s;
         do {
@@ -61,6 +61,7 @@ double getMinPath(int &s, int &cities, double min_path, vector<int> &numbers, do
             }
         } while (next_permutation(numbers.begin(), numbers.end()) && std::chrono::system_clock::now() < end);
         cout << "\nMinimum Path: " << min_path << endl;
+            cout << min_path << endl;
         return min_path;
     }
 void acceptInput(int &cities) {
@@ -80,6 +81,6 @@ int main() {
     addCities(numbers, cities);
     readDistances(tempWeightedEdges);
     createAdjacencyMatrix(z, tempWeightedEdges, weightedEdges, cities);
-    getMinPath(s, cities, min_path, numbers, weightedEdges);
+    getMinPath(s, min_path, numbers, weightedEdges);
     return 0;
 }
