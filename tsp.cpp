@@ -10,9 +10,9 @@ using namespace std;
 
 void readDistances(vector<double> &tempWeightedEdges) {
     string myText;
-    ifstream MyReadFile(R"(C:\Users\Chris\Downloads\distances.txt)");
+    ifstream MyReadFile("distances.txt");
     while(getline(MyReadFile, myText)) {
-        tempWeightedEdges.push_back(stod(myText));
+        tempWeightedEdges.push_back(std::atof(myText.c_str()));
     }
 }
 // Creates adjacency matrix
@@ -69,11 +69,11 @@ double getMinPath(int &s, double min_path, vector<int> &numbers, double weighted
         cout << "\nBrute Force Finished..." << endl;
         return min_path;
     }
-    // Accepts a vector of type int and splits beginning at X, ending at Y.
+    // Accepts a vector of type int and splits vector beginning at X, ending at Y.
 vector<int> split(vector<int> &arr, int X, int Y) {
     auto start = arr.begin() + X;
     auto end = arr.begin() + Y + 1;
-    vector<int> result(Y - X + 1); //+ 1);
+    vector<int> result(Y - X + 1);;
     copy(start, end, result.begin());
     return result;
 }
@@ -137,7 +137,6 @@ int main() {
     int z = 0;
     vector<double> tempWeightedEdges;
     vector<vector<int>> population;
-    vector<vector<int>> elites;
     vector<double> generationWeights;
     vector<int> numbers;
     double weightedEdges[20][20];
