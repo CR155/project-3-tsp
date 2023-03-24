@@ -17,7 +17,7 @@ void readDistances(vector<double> &tempWeightedEdges) {
 }
 // Creates adjacency matrix
 void createAdjacencyMatrix(int &z, vector<double> &tempWeightedEdges, double weightedEdges[][20], int &cities) {
-    cout << "---- ADJACENCY MATRIX" << endl;
+    cout << "---- ADJACENCY MATRIX ----" << endl;
     for (int i = 0; i < cities; i++) {
         for (int j = 0; j < cities; j++) {
             // if 0 = 0 or 1 = 1 this will set the value of the edge to 0
