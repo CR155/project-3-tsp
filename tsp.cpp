@@ -17,12 +17,12 @@ void readDistances(vector<double> &tempWeightedEdges) {
 }
 // Creates adjacency matrix
 void createAdjacencyMatrix(int &z, vector<double> &tempWeightedEdges, double weightedEdges[][20], int &cities) {
-    cout << "---- ADJACENCY MATRIX" << endl;
+    cout << "---- ADJACENCY MATRIX ----" << endl;
     for (int i = 0; i < cities; i++) {
         for (int j = 0; j < cities; j++) {
             // if 0 = 0 or 1 = 1 this will set the value of the edge to 0
             if (i == j) {
-                weightedEdges[i][j] = 0.0;
+                weightedEdges[i][j] = 0;
             } else {
                 weightedEdges[i][j] = tempWeightedEdges.at(z - 1);
             }
@@ -69,7 +69,6 @@ double getMinPath(int &s, double min_path, vector<int> &numbers, double weighted
         cout << "\nBrute Force Finished..." << endl;
         return min_path;
     }
-
     // Accepts a vector of type int and splits beginning at X, ending at Y.
 vector<int> split(vector<int> &arr, int X, int Y) {
     auto start = arr.begin() + X;
@@ -92,10 +91,6 @@ int randomNumber(int N) {
     return dist(eng);
 }
     void printPopulation(vector<vector<int>> &population, vector<double> generationWeights, int &generationsToRun, int &cities) {
-        int A = 0;
-        int B = cities / 2;
-        int C = cities / 2;
-        int D = cities - 1;
         vector<int> splitVec1;
         vector<int> splitVec2;
     for (int i = 0; i < generationsToRun; i++) {
@@ -117,7 +112,7 @@ int randomNumber(int N) {
         cout << "\nGeneration Weight: " << generationWeights[i] << endl;
     }
 }
-void acceptInput(int &cities,int &generationsToRun, int &solutionsInGeneration, int &percentToursMutated ) {
+void acceptInput(int &cities,int &generationsToRun, int &solutionsInGeneration, int &percentOfToursMutated ) {
     cout << "Enter number of cities to run: ";
     cin >> cities;
     cout << "How many generations to run: ";
@@ -125,10 +120,9 @@ void acceptInput(int &cities,int &generationsToRun, int &solutionsInGeneration, 
     cout << "How many solutions in a generation: ";
     cin >> solutionsInGeneration;
     cout << "What percentage of a generation should be comprised of mutated tours: ";
-    cin >> percentToursMutated;
+    cin >> percentOfToursMutated;
     cout << endl;
 }
-
 int main() {
     int generationsToRun = 0;
     int solutionsInGeneration = 0;
